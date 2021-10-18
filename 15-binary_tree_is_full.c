@@ -26,14 +26,14 @@ int recursive_height(const binary_tree_t *node)
 }
 
 /**
- * binary_tree_balance_2 - measures the balance factor of a binary tree
+ * binary_tree_balance - measures the balance factor of a binary tree
  * @tree: pointer to the root node of a tree to measure
  * Return: balance factor of the tree, or 0 if NULL
  */
-int binary_tree_balance_2(const binary_tree_t *tree)
+int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (!tree)
-		return (-1);
+		return (0);
 	return (recursive_height(tree->left) - recursive_height(tree->right));
 }
 
@@ -47,7 +47,8 @@ int binary_tree_preorder_2(const binary_tree_t *node)
 {
 	if (!node)
 		return (1);
-	if (binary_tree_balance(node->left) != binary_tree_balance(node->right))
+	if ((node->left && !node->right) || (node->right && !node->left) ||
+		binary_tree_balance(node->left) != binary_tree_balance(node->right))
 		return (0);
 	return (binary_tree_preorder_2(node->left));
 	return (binary_tree_preorder_2(node->right));
