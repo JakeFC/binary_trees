@@ -13,7 +13,8 @@ int binary_tree_preorder_3(const binary_tree_t *node)
 	if ((node->left && !node->right) || (node->right && !node->left) ||
 		binary_tree_preorder_3(node->left) != binary_tree_preorder_3(node->right))
 		return (0);
-	return (binary_tree_preorder_3(node->left));
+	if (binary_tree_preorder_3(node->left) == 0)
+		return (binary_tree_preorder_3(node->left));
 	return (binary_tree_preorder_3(node->right));
 }
 

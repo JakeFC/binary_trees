@@ -50,7 +50,8 @@ int binary_tree_preorder_2(const binary_tree_t *node)
 	if ((node->left && !node->right) || (node->right && !node->left) ||
 		binary_tree_balance(node->left) != binary_tree_balance(node->right))
 		return (0);
-	return (binary_tree_preorder_2(node->left));
+	if (binary_tree_preorder_2(node->left) == 0)
+		return (binary_tree_preorder_2(node->left));
 	return (binary_tree_preorder_2(node->right));
 }
 
