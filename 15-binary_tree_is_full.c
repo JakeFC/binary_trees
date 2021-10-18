@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_preorder_3 - traverses a binary tree in preorder and returns
- * balance factor
+ * whether or not tree is full
  * @node: pointer to the node to traverse next
  * Return: 1 if node is full or NULL, 0 otherwise
  */
